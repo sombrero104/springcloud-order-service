@@ -1,6 +1,6 @@
 <br/>
 
-### 요청 예시 
+### order-service 요청 예시 
 
 - Method: POST
 - URL: http://127.0.0.1:8000/order-service/[사용자 아이디]/orders
