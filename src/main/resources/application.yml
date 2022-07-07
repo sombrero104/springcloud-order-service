@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: order-service
+    name: order-me.service
   h2:
     console:
       enabled: true
