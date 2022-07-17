@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      uri: http://127.0.0.1:8888
+      name: order-service
+#      name: config-service # => application.yml 사용
+#      name: ecommerce # => ecommerce.yml 사용
+#  profiles:
+#    active: dev
