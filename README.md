@@ -22,6 +22,32 @@
     "orderId": "868b506a-1925-4410-a68d-4e06d7241a6b"
 }
 ~~~
+
+### order-service 주문내역 조회 예시 
+- 요청: 상품 주문내역 조회 
+- Method: GET
+- URL: http://127.0.0.1:8000/order-service/[사용자 아이디]/orders
+- Response:
+~~~
+[
+    {
+        "productId": "CATALOG-0007",
+        "qty": 10,
+        "unitPrice": 900,
+        "totalPrice": 9000,
+        "createdAt": "2022-07-29T17:00:27.025+00:00",
+        "orderId": "4f06ef6a-5d84-4f1e-9765-627b386b184b"
+    },
+    {
+        "productId": "CATALOG-0009",
+        "qty": 10,
+        "unitPrice": 900,
+        "totalPrice": 9000,
+        "createdAt": "2022-07-29T17:00:36.731+00:00",
+        "orderId": "bb0bd2e9-2265-4854-9c37-8045bc63d6b7"
+    }
+]
+~~~
 <br/><br/>
 
 ## Multiple Orders Service 
