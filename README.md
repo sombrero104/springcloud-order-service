@@ -6,7 +6,7 @@
 - 요청: 상품 주문 
 - Method: POST
 - URL: http://127.0.0.1:8000/order-service/[사용자 아이디]/orders
-- Body: 
+- Request Body: 
 ~~~
 {
     "productId": "CATALOG-0002",
@@ -14,7 +14,7 @@
     "unitPrice": 900
 }
 ~~~
-- Response:
+- Response Body:
 ~~~
 {
     "productId": "CATALOG-0002",
@@ -29,7 +29,7 @@
 - 요청: 상품 주문 내역 조회 
 - Method: GET
 - URL: http://127.0.0.1:8000/order-service/[사용자 아이디]/orders
-- Response:
+- Response Body:
 ~~~
 [
     {
