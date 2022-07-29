@@ -1,6 +1,6 @@
 <br/>
 
-## order-service 
+# order-service 
 
 ### 주문 요청 
 - 요청: 상품 주문 
@@ -52,7 +52,7 @@
 ~~~
 <br/><br/>
 
-## Multiple Orders Service 
+# Multiple Orders Service 
 user-service 요청 처리의 부하 분산을 위해 <br/>
 order-service를 하나 이상 기동한다고 가정했을 때 <br/>
 order-service 데이터가 분산 저장되어 동기화 문제가 발생한다. <br/>
@@ -64,7 +64,7 @@ order-service 데이터가 분산 저장되어 동기화 문제가 발생한다.
 > 같은 사용자임에도 불구하고 주문내역을 조회할 때 <br/>
 > 어떤 경우에는 조회 결과가 1개, 어떤 경우에는 2개로 조회 결과가 나오게 된다. <br/>
 
-### 해결 방법?
+## 해결 방법?
 - 하나의 데이터베이스 사용 
 - 데이터베이스 간의 동기화 
     - Message Queuing Server 사용 (Apache Kafka, RabbitMQ) <br/>
