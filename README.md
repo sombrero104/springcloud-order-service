@@ -23,8 +23,8 @@
 }
 ~~~
 
-### order-service 주문내역 조회 예시 
-- 요청: 상품 주문내역 조회 
+### order-service 주문 내역 조회 예시 
+- 요청: 상품 주문 내역 조회 
 - Method: GET
 - URL: http://127.0.0.1:8000/order-service/[사용자 아이디]/orders
 - Response:
