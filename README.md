@@ -1,6 +1,6 @@
 <br/>
 
-### order-service 주문 요청 예시 
+### order-service 주문 요청 
 - 요청: 상품 주문 
 - Method: POST
 - URL: http://127.0.0.1:8000/order-service/[사용자 아이디]/orders
@@ -23,7 +23,7 @@
 }
 ~~~
 
-### order-service 주문 내역 조회 예시 
+### order-service 주문 내역 조회 
 - 요청: 상품 주문 내역 조회 
 - Method: GET
 - URL: http://127.0.0.1:8000/order-service/[사용자 아이디]/orders
