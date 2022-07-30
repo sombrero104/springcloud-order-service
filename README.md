@@ -98,6 +98,6 @@ order-service 데이터가 분산 저장되어 동기화 문제가 발생한다.
         - Broker 정상 동작 모니터링 관리 
 
 ## Kafka 설치
-https://kafka.apache.org에서 다운로드 받은 후 압축 해제.
+https://kafka.apache.org 에서 다운로드 받은 후 압축 해제.
 
 <br/><br/><br/><br/>
