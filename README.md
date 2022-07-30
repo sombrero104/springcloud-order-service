@@ -77,4 +77,27 @@ order-service 데이터가 분산 저장되어 동기화 문제가 발생한다.
     Message Queuing Server에서 데이터베이스에 업데이트.
     - 많은 요청 처리 시 동시성 문제를 Kafka에 일임. 
 
+<br/><br/>
+    
+# Apache Kafka
+- Apache Software Foundation 의 Scalar 언어로 된 오픈 소스 메시지 브로커 프로젝트 
+- Linked-in 에서 개발, 2011년 오픈 소스화 
+    - 2014년 11월 링크드인에서 Kafka를 개발하던 엔지니어들이 Kafka 개발에 집중하기 위해 Confluent 라는 회사 창립 
+- 실시간 데이터 피드를 관리하기 위해 통일된 높은 처리량, 낮은 지연 시간을 지닌 플랫폼 제공
+
+## Kafka Broker
+- 실행 된 Kafka 애플리케이션 서버
+- 3대 이상의 Broker Cluster 구성 권장 
+- Zookeeper 연동 
+    - Broker Cluster 서버들을 관리해 주는 코디네이터 역할
+    - 메타데이터 (Broker ID, Controller ID 등) 저장
+    - Controller 정보 저장 
+- n개 Broker 중 1대는 Controller 기능 수행 
+    - Controller 역할
+        - 각 Broker에게 담당 파티션 할당 수행 
+        - Broker 정상 동작 모니터링 관리 
+
+## Kafka 설치
+https://kafka.apache.org에서 다운로드 받은 후 압축 해제.
+
 <br/><br/><br/><br/>
