@@ -115,9 +115,9 @@ https://kafka.apache.org 에서 다운로드 받은 후 압축 해제.
 $KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties
 $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
 ~~~
-#### Topic 생성 
 producer 들이 메시지를 생성해서 보내게 되면 Topic 에 저장이 된다. <br/>
-새로운 메시지가 있을 경우 Topic 에 등록한 consumer 에게 메시지를 전달한다. <br/> 
+새로운 메시지는 Topic 에 등록한 consumer 에게 전달된다. <br/> 
+#### Topic 생성 
 ~~~
 $KAFKA_HOME/bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092 --partitions 1
     => --create 옵션을 사용하여 quickstart-events 이름으로 토픽을 생성. 
