@@ -133,5 +133,12 @@ $KAFKA_HOME/bin/kafka-topic.sh --describe --topic quickstart-events --bootstrap-
 
 ## Kafka Producer/Consumer 테스트 
 ### 메시지 생산 
+~~~
+$KAFKA_HOME/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic quickstart-events 
+~~~
+### 메시지 소비 
+~~~
+$KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic quickstart-events 
+~~~
 
 <br/><br/><br/><br/>
