@@ -89,7 +89,7 @@ order-service 데이터가 분산 저장되어 동기화 문제가 발생한다.
 - 실행 된 Kafka 애플리케이션 서버
 - 3대 이상의 Broker Cluster 구성 권장 
 - Zookeeper 연동 
-    - Broker Cluster 서버들을 관리해 주는 코디네이터 역할
+    - Broker Cluster 서버들을 관리해 주는 코디네이터 역할 (~~동물원 사육사~~)
     - 메타데이터 (Broker ID, Controller ID 등) 저장
     - Controller 정보 저장 
 - n개 Broker 중 1대는 Controller 기능 수행 
