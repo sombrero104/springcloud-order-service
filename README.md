@@ -98,7 +98,7 @@ order-service 데이터가 분산 저장되어 동기화 문제가 발생한다.
         - Broker 정상 동작 모니터링 관리 
 <br/>
 
-## Ecosystem 1. Kafka Client
+# Ecosystem 1. Kafka Client
 - https://docs.confluent.io/platform/current/clients/index.html
 - Kafka 와 데이터를 주고 받기 위해 사용하는 Java Library
     - https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
