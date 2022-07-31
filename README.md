@@ -108,6 +108,23 @@ https://kafka.apache.org 에서 다운로드 받은 후 압축 해제.
 - 다양한 3rd party library 존재 (C/C++, Node.js, Python, .NET 등)
     - https://cwiki.apache.org/confluence/display/kafka/clients
 
-
+### Kafka 서버 기동
+#### Zookeeper 및 Kafka 서버 구동
+~~~
+$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties
+$KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
+~~~
+#### Topic 생성
+~~~
+$KAFKA_HOME/bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092 --partitions 1
+~~~
+#### Topic 목록 확인
+~~~
+$KAFKA_HOME/bin/kafka-topic.sh --bootstrap-server localhost:9092 --list
+~~~
+#### Topic 정보 확인
+~~~
+$KAFKA_HOME/bin/kafka-topic.sh --describe --topic quickstart-events --bootstrap-server localhost:9092
+~~~
 
 <br/><br/><br/><br/>
