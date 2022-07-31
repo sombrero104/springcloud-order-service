@@ -110,25 +110,28 @@ order-service 데이터가 분산 저장되어 동기화 문제가 발생한다.
 https://kafka.apache.org 에서 다운로드 받은 후 압축 해제.
 
 ## Kafka 서버 기동
-#### Zookeeper 및 Kafka 서버 구동
+### Zookeeper 및 Kafka 서버 구동
 ~~~
 $KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties
 $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
 ~~~
 producer 들이 메시지를 생성해서 보내게 되면 Topic 에 저장이 된다. <br/>
 새로운 메시지는 Topic 에 등록한 consumer 에게 전달된다. <br/> 
-#### Topic 생성 
+### Topic 생성 
 ~~~
 $KAFKA_HOME/bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092 --partitions 1
     => --create 옵션을 사용하여 quickstart-events 이름으로 토픽을 생성. 
 ~~~
-#### Topic 목록 확인
+### Topic 목록 확인
 ~~~
 $KAFKA_HOME/bin/kafka-topic.sh --bootstrap-server localhost:9092 --list
 ~~~
-#### Topic 정보 확인
+### Topic 정보 확인
 ~~~
 $KAFKA_HOME/bin/kafka-topic.sh --describe --topic quickstart-events --bootstrap-server localhost:9092
 ~~~
+
+## Kafka Producer/Consumer 테스트 
+### 메시지 생산 
 
 <br/><br/><br/><br/>
