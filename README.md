@@ -96,8 +96,9 @@ order-service 데이터가 분산 저장되어 동기화 문제가 발생한다.
     - Controller 역할
         - 각 Broker에게 담당 파티션 할당 수행 
         - Broker 정상 동작 모니터링 관리 
+<br/>
 
-## Ecosystem 1 - Kafka Client
+# Ecosystem 1 - Kafka Client
 - https://docs.confluent.io/platform/current/clients/index.html
 - Kafka 와 데이터를 주고 받기 위해 사용하는 Java Library
     - https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
@@ -105,10 +106,10 @@ order-service 데이터가 분산 저장되어 동기화 문제가 발생한다.
 - 다양한 3rd party library 존재 (C/C++, Node.js, Python, .NET 등)
     - https://cwiki.apache.org/confluence/display/kafka/clients
 
-### Kafka 설치
+## Kafka 설치
 https://kafka.apache.org 에서 다운로드 받은 후 압축 해제.
 
-### Kafka 서버 기동
+## Kafka 서버 기동
 #### Zookeeper 및 Kafka 서버 구동
 ~~~
 $KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties
