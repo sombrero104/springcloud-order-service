@@ -124,11 +124,11 @@ $KAFKA_HOME/bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-s
 ~~~
 ### Topic 목록 확인
 ~~~
-$KAFKA_HOME/bin/kafka-topic.sh --bootstrap-server localhost:9092 --list
+$KAFKA_HOME/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
 ~~~
 ### Topic 정보 확인
 ~~~
-$KAFKA_HOME/bin/kafka-topic.sh --describe --topic quickstart-events --bootstrap-server localhost:9092
+$KAFKA_HOME/bin/kafka-topics.sh --describe --topic quickstart-events --bootstrap-server localhost:9092
 ~~~
 
 ## Kafka Producer/Consumer 테스트 
@@ -138,7 +138,10 @@ $KAFKA_HOME/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic q
 ~~~
 ### 메시지 소비 
 ~~~
-$KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic quickstart-events 
+$KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic quickstart-events --from-beginning 
 ~~~
+### [테스트 결과] 
+<img src="./images/test_kafka_producer.png" width="74%" /><br/>
+<img src="./images/test_kafka_consumer.png" width="74%" /><br/>
 
 <br/><br/><br/><br/>
