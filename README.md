@@ -146,9 +146,9 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 <br/>
 
 # Ecosystem 2. Kafka Connect
-- Kafka Connect를 통해 Data를 Import/Export 가능
-- 코드 없이 Configuration으로 데이터를 이동
-- Standalone mode, Distribution mode 지원
+- Kafka Connect를 통해 Data를 Import/Export 가능 <br/>
+- 코드 없이 Configuration으로 데이터를 이동 <br/>
+- Standalone mode, Distribution mode 지원 <br/>
     - RESTful API 통해 지원 <br/>
     - Stream 또는 Batch 형태로 데이터 전송 가능 <br/>
     - 커스텀 Connector를 통한 다양한 Plugin 제공 (File, S3, Hive, Mysql 등) <br/>
