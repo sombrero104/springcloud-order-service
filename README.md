@@ -153,11 +153,11 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
     - Stream 또는 Batch 형태로 데이터 전송 가능
     - 커스텀 Connector를 통한 다양한 Plugin 제공 (File, S3, Hive, Mysql 등)
     
-        > Source System(Hive, jdbc..) <br/>
+        > Source System (Hive, jdbc..) <br/>
          -> Kafka Connect Source <br/>
          -> Kafka Cluster <br/>
          -> Kafka Connect Sink <br/>
-         -> Target System(S3..) 
+         -> Target System (S3..) 
 
 
 <br/><br/><br/><br/>
