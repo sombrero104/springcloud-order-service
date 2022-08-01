@@ -143,5 +143,21 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 #### [테스트 결과] 
 <img src="./images/test_kafka_producer.png" width="54%" /><br/>
 <img src="./images/test_kafka_consumer.png" width="54%" /><br/>
+<br/>
+
+# Ecosystem 2. Kafka Connect
+- Kafka Connect를 통해 Data를 Import/Export 가능
+- 코드 없이 Configuration으로 데이터를 이동
+- Standalone mode, Distribution mode 지원
+    - RESTful API 통해 지원
+    - Stream 또는 Batch 형태로 데이터 전송 가능
+    - 커스텀 Connector를 통한 다양한 Plugin 제공 (File, S3, Hive, Mysql 등)
+    ~~~
+    Source System(Hive, jdbc..)
+     -> Kafka Connect Source
+     -> Kafka Cluster
+     -> Kafka Connect Sink 
+     -> Target System(S3..)
+    ~~~
 
 <br/><br/><br/><br/>
