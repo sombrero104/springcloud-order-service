@@ -140,8 +140,8 @@ $KAFKA_HOME/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic q
 ~~~
 $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic quickstart-events --from-beginning 
 ~~~
-### [테스트 결과] 
-<img src="./images/test_kafka_producer.png" width="74%" /><br/>
-<img src="./images/test_kafka_consumer.png" width="74%" /><br/>
+#### [테스트 결과] 
+<img src="./images/test_kafka_producer.png" width="54%" /><br/>
+<img src="./images/test_kafka_consumer.png" width="54%" /><br/>
 
 <br/><br/><br/><br/>
