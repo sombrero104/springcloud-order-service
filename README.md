@@ -159,5 +159,14 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
         >  -> Kafka Connect Sink <br/>
         >  -> Target System (S3..) 
 
+## 데이터베이스 간의 데이터 이동 테스트 
+#### [pom.xml]
+~~~
+<dependency>
+    <groupId>org.mariadb.jdbc</groupId>
+    <artifactId>mariadb-java-client</artifactId>
+    <version>2.7.2</version>
+</dependency>
+~~~
 
 <br/><br/><br/><br/>
