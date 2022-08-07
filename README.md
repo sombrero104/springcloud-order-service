@@ -143,7 +143,7 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 #### [테스트 결과] 
 <img src="./images/test_kafka_producer.png" width="54%" /><br/>
 <img src="./images/test_kafka_consumer.png" width="54%" /><br/>
-<br/>
+<br/><br/>
 
 # Ecosystem 2. Kafka Connect
 - Kafka Connect를 통해 Data를 Import/Export 가능 <br/>
