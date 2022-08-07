@@ -173,6 +173,7 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
     <version>8.0.30</version>
 </dependency>
 ~~~
+#### [테스트용 테이블 생성] 
 ~~~
 create table users
 (
@@ -183,5 +184,21 @@ create table users
 	created_at datetime default CURRENT_TIMESTAMP null
 );
 ~~~
+### Kafka Connect 설치
+~~~
+curl -O http://packages.confluent.io/archive/5.5/confluent-community-5.5.2-2.12.tar.gz
+curl -O http://packages.confluent.io/archive/6.1/confluent-community-6.1.0.tar.gz
+tar xvf confluent-community-6.1.0.tar.gz
+cd $KAFKA_CONNECT_HOME
+~~~
+### Kafka Connect 설정 (현재는 기본으로 사용)
+~~~
+$KAFKA_HOME/config/connect-distributed.properties
+~~~
+### Kafka Connect 실행 
+~~~
+$KAFKA_CONNECT_HOME/bin/connect-distributed $KAFKA_CONNECT_HOME/etc/kafka/connect-distributed.properties
+~~~
+
 
 <br/><br/><br/><br/>
