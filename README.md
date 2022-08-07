@@ -205,4 +205,14 @@ Kafka Connect 를 실행한 후 Topic 목록을 확인하면 아래와 같이 �
 
 <img src="./images/kafka_connect_default_topic.png" width="89%" /><br/>
 
+### JDBC Connector 설치
+https://docs.confluent.io/5.5.1/connect/kafka-connect-jdbc/index.html 에서 <br/>
+confluentinc-kafka-connect-jdbc-10.5.1.zip 파일을 다운로드 받은 후 압축 해제. <br/>
+
+$KAFKA_CONNECT_HOME/etc/kafka/connect-distributed.properties 파일에 <br/>
+plugin 옵션으로 JDBC Connector 경로를 추가한다. <br/>
+~~~
+plugin.path=/Users/sombrero104/workspace/confluentinc-kafka-connect-jdbc-10.5.1/lib
+~~~
+
 <br/><br/><br/><br/>
