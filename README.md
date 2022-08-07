@@ -199,6 +199,7 @@ $KAFKA_HOME/config/connect-distributed.properties
 ~~~
 $KAFKA_CONNECT_HOME/bin/connect-distributed $KAFKA_CONNECT_HOME/etc/kafka/connect-distributed.properties
 ~~~
-
+Topic 목록을 확인하면 아래와 같이 Kafka Connect 의 기본적인 토픽들이 생긴 것을 확인할 수 있다. <br/>
+<img src="./images/kafka_connect_default_topic.png" width="54%" /><br/>
 
 <br/><br/><br/><br/>
