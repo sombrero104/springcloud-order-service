@@ -162,11 +162,26 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 ## 데이터베이스 간의 데이터 이동 테스트 
 #### [pom.xml]
 ~~~
-<dependency>
+<!--<dependency>
     <groupId>org.mariadb.jdbc</groupId>
     <artifactId>mariadb-java-client</artifactId>
     <version>2.7.2</version>
+</dependency>-->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.30</version>
 </dependency>
+~~~
+~~~
+create table users
+(
+	id int auto_increment primary key,
+	user_id varchar(20) null,
+	pwd varchar(20) null,
+	name varchar(20) null,
+	created_at datetime default CURRENT_TIMESTAMP null
+);
 ~~~
 
 <br/><br/><br/><br/>
