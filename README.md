@@ -175,13 +175,12 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 ~~~
 #### [테스트용 테이블 생성] 
 ~~~
-create table users
-(
-	id int auto_increment primary key,
-	user_id varchar(20) null,
-	pwd varchar(20) null,
-	name varchar(20) null,
-	created_at datetime default CURRENT_TIMESTAMP null
+create table users (
+    id int auto_increment primary key,
+    user_id varchar(20) null,
+    pwd varchar(20) null,
+    name varchar(20) null,
+    created_at datetime default CURRENT_TIMESTAMP null
 );
 ~~~
 ### Kafka Connect 설치
@@ -191,7 +190,8 @@ curl -O http://packages.confluent.io/archive/6.1/confluent-community-6.1.0.tar.g
 tar xvf confluent-community-6.1.0.tar.gz
 cd $KAFKA_CONNECT_HOME
 ~~~
-### Kafka Connect 설정 (현재는 기본으로 사용)
+### Kafka Connect 설정 
+(현재는 기본으로 사용) <br/>
 ~~~
 $KAFKA_HOME/config/connect-distributed.properties
 ~~~
@@ -199,7 +199,9 @@ $KAFKA_HOME/config/connect-distributed.properties
 ~~~
 $KAFKA_CONNECT_HOME/bin/connect-distributed $KAFKA_CONNECT_HOME/etc/kafka/connect-distributed.properties
 ~~~
-Topic 목록을 확인하면 아래와 같이 Kafka Connect 의 기본적인 토픽들이 생긴 것을 확인할 수 있다. <br/>
-<img src="./images/kafka_connect_default_topic.png" width="54%" /><br/>
+
+Kafka Connect 를 실행한 후 Topic 목록을 확인하면 아래와 같이 디폴트로 생성되는 토픽들을 확인할 수 있다. <br/>
+
+<img src="./images/kafka_connect_default_topic.png" width="74%" /><br/>
 
 <br/><br/><br/><br/>
