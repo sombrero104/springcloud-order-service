@@ -203,6 +203,6 @@ $KAFKA_CONNECT_HOME/bin/connect-distributed $KAFKA_CONNECT_HOME/etc/kafka/connec
 
 Kafka Connect 를 실행한 후 Topic 목록을 확인하면 아래와 같이 디폴트로 생성되는 토픽들을 확인할 수 있다. <br/>
 
-<img src="./images/kafka_connect_default_topic.png" width="94%" /><br/>
+<img src="./images/kafka_connect_default_topic.png" width="84%" /><br/>
 
 <br/><br/><br/><br/>
