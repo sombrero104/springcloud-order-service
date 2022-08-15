@@ -307,9 +307,14 @@ echo '
 }
 '| curl -X POST -d @- http://localhost:8083/connectors --header "content-Type:application/json"
 ~~~
-
+<br/>
 <img src="./images/create_sink_connect.png" width="67%" /><br/>
 
-<img src="./images/create_sink_connect_02.png" width="67%" /><br/>
+호출 결과 (위에서 users 테이블에 insert 발생 후) Topic 에서 전달된 <br/>
+데이터가 저장된 my_topic_users 테이블이 생성된 것을 확인할 수 있다. <br/>
+
+<img src="./images/create_sink_connect_02.png" width="47%" /><br/>
+
+
 
 <br/><br/><br/><br/>
