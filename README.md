@@ -264,6 +264,24 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 
 <img src="./images/kafka_consumer_connect_db.png" width="67%" /><br/>
 
+~~~
+{
+    "schema":{
+	    "type":"struct"
+		,"fields":[
+			{"type":"int32","optional":false,"field":"id"}
+			,{"type":"string","optional":true,"field":"user_id"}
+			,{"type":"string","optional":true,"field":"pwd"}
+			,{"type":"string","optional":true,"field":"name"}
+			,{"type":"int64","optional":true,"name":"org.apache.kafka.connect.data.Timestamp","version":1,"field":"created_at"}
+		]
+		,"optional":false
+		,"name":"users"
+	}
+	,"payload":{"id":1,"user_id":"test1","pwd":null,"name":"test1","created_at":1660592867000}
+}
+~~~
+
 출력된 포맷은 카프카가 토픽으로 전달할 때 자동으로 생성한 포맷으로 <br/>
 토픽을 이용하여 데이터베이스에 데이터를 저장하기 위해서는 위와 같은 포맷으로 전달하면 된다. <br/>
 데이터베이스에 직접 저장하지 않고 토픽에 저장하면 Sink Connect 에 의해 데이터베이스에 저장이 되게 된다. <br/>
