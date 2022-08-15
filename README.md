@@ -264,4 +264,7 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 
 <img src="./images/kafka_consumer_connect_db.png" width="67%" /><br/>
 
+출력된 포맷은 카프카가 토픽으로 전달할 때 자동으로 생성한 포맷으로 <br/>
+토픽을 이용하여 데이터베이스에 데이터를 저장하기 위해서는 위와 같은 포맷으로 전달하면 된다. <br/>
+
 <br/><br/><br/><br/>
