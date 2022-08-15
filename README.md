@@ -219,7 +219,8 @@ plugin.path=/Users/sombrero104/workspace/confluentinc-kafka-connect-jdbc-10.5.1/
 (/mysql/mysql-connector-java/8.0.30/mysql-connector-java-8.0.30.jar) <br/>
 Kafka 커넥터의 ./confluent-6.1.0/share/java/kafka/ 경로에 복사해 준다. <br/>
 
-### Source Connect 등록 
+### Kafka Source Connect 등록 
+POST 방식으로 /connectors 호출. 
 ~~~
 echo '
 {
@@ -228,15 +229,34 @@ echo '
         "connector.class" : "io.confluent.connect.jdbc.JdbcSourceConnector",
         "connection.url":"jdbc:mysql://localhost:3306/mydb",
         "connection.user":"root",
-        "connection.password":"test1357",
+        "connection.password":"패스워드",
         "mode": "incrementing",
         "incrementing.column.name" : "id",
-        "table.whitelist":"users",                  // 이 테이블의 변경 사항을 감지 
-        "topic.prefix" : "my_topic_",               // 변경 내용을 이 prefix를 가진 토픽에 저장 
+        "table.whitelist":"users",                  // 이 테이블의 변경 사항을 감지. 
+        "topic.prefix" : "my_topic_",               // 변경 내용을 이 prefix를 가진 토픽에 저장. (my_topic_users가 된다.) 
         "tasks.max" : "1"
     }
 }
 ' | curl -X POST -d @- http://localhost:8083/connectors --header "content-Type:application/json"
 ~~~
+
+### Kafka Connect 목록 확인
+GET 방식으로 /connectors 호출. 
+~~~
+curl http://localhost:8083/connectors
+~~~
+
+### Kafka Connect 확인 
+~~~
+curl http://localhost:8083/connectors/my-source-connect/status 
+~~~
+
+### 테스트를 위해 Kafka Consumer 를 실행 
+~~~ 
+$KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my_topic_users --from-beginning 
+~~~
+위와 같이 Consumer 를 띄우면 users 테이블에 변경사항이 발생함과 동시에 아래와 같이 출력되는 것을 확인할 수 있다. 
+
+<img src="./images/kafka_consumer_connect_db.png" width="54%" /><br/>
 
 <br/><br/><br/><br/>
