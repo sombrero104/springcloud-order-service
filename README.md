@@ -259,6 +259,6 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 
 위와 같이 Consumer 를 띄우면 users 테이블에 변경사항이 발생함과 동시에 아래와 같이 출력되는 것을 확인할 수 있다. <br/>
 
-<img src="./images/kafka_consumer_connect_db.png" width="67%" /><br/>
+<img src="./images/kafka_consumer_connect_db.png" width="69%" /><br/>
 
 <br/><br/><br/><br/>
