@@ -315,6 +315,9 @@ echo '
 
 <img src="./images/create_sink_connect_02.png" width="47%" /><br/>
 
+이후에도 users 테이블에 새로운 데이터를 insert 하면 my_topic_users 에도 똑같이 저장되는 것을 확인할 수 있다. <br/>
+
+<img src="./images/create_sink_connect_03.png" width="47%" /><br/>
 
 
 <br/><br/><br/><br/>
