@@ -266,5 +266,6 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 
 출력된 포맷은 카프카가 토픽으로 전달할 때 자동으로 생성한 포맷으로 <br/>
 토픽을 이용하여 데이터베이스에 데이터를 저장하기 위해서는 위와 같은 포맷으로 전달하면 된다. <br/>
+데이터베이스에 직접 저장하지 않고 토픽에 저장하면 Sink Connect 에 의해 데이터베이스에 저장이 되게 된다. <br/>
 
 <br/><br/><br/><br/>
