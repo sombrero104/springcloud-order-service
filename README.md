@@ -285,4 +285,31 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 토픽을 이용하여 데이터베이스에 데이터를 저장하기 위해서는 위와 같은 포맷으로 전달하면 된다. <br/>
 데이터베이스에 직접 저장하지 않고 토픽에 저장하면 Sink Connect 에 의해 데이터베이스에 저장이 되게 된다. <br/>
 
+### Kafka Sink Connect 등록 
+POST 방식으로 /connectors 호출. <br/>
+(Source Connect 와 같은 API 를 호출하지만 connector.class 가 다르다.) <br/>
+Source Connect 에서 전달한 데이터가 Topic 에 쌓이고 Sink Connect 가 가져와서 사용한다. <br/>
+~~~
+echo '
+{
+    "name":"my-sink-connect",
+    "config":{
+        "connector.class":"io.confluent.connect.jdbc.JdbcSinkConnector", // DB 연결용 Sink Connector를 사용. 
+        "connection.url":"jdbc:mysql://localhost:3306/mydb",
+        "connection.user":"root",
+        "connection.password":"패스워드",
+        "auto.create":"true",           // Topic의 이름(현재는 my_topic_users)과 같은 이름의 테이블을 자동으로 생성하는 옵션. 
+        "auto.evolve":"true",
+        "delete.enabled":"false",
+        "tasks.max":"1",
+        "topics":"my_topic_users"       // 데이터를 가져올 Topic. 
+    }
+}
+'| curl -X POST -d @- http://localhost:8083/connectors --header "content-Type:application/json"
+~~~
+
+<img src="./images/create_sink_connect.png" width="67%" /><br/>
+
+<img src="./images/create_sink_connect_02.png" width="67%" /><br/>
+
 <br/><br/><br/><br/>
