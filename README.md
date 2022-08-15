@@ -215,4 +215,9 @@ plugin 옵션으로 JDBC Connector 경로를 추가한다. <br/>
 plugin.path=/Users/sombrero104/workspace/confluentinc-kafka-connect-jdbc-10.5.1/lib
 ~~~
 
+로컬 리파지토리 경로에 있는 mysql 드라이버를 <br/>
+(/mysql/mysql-connector-java/8.0.30/mysql-connector-java-8.0.30.jar) <br/>
+Kafka 커넥터의 ./confluent-6.1.0/share/java/kafka/ 경로에 복사해 준다. <br/>
+<br/>
+
 <br/><br/><br/><br/>
