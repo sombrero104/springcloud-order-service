@@ -241,12 +241,15 @@ echo '
 ~~~
 
 ### Kafka Connect 목록 확인
-GET 방식으로 /connectors 호출. 
+GET 방식으로 /connectors 호출. <br/>
+현재 등록되어진 connector 들을 확인할 수 있다. <br/>
 ~~~
 curl http://localhost:8083/connectors
 ~~~
 
 ### Kafka Connect 확인 
+GET 방식으로 /connectors/[connector 이름]/status 호출. <br/>
+현재 등록되어진 connector 의 상세 정보를 확인할 수 있다. <br/>
 ~~~
 curl http://localhost:8083/connectors/my-source-connect/status 
 ~~~
