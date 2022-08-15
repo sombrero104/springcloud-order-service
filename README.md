@@ -319,5 +319,10 @@ echo '
 
 <img src="./images/create_sink_connect_03.png" width="47%" /><br/>
 
+만약, users 테이블에 insert 하지 않고 Producer 로 Topic 에 데이터를 전달하게 되면 <br/>
+users 테이블에는 저장하지 않고 Topic 을 통하여 바로 my_topic_users 테이블에만 저장하게 된다. <br/>
+(Sink Connect 만 사용하게 된다.) <br/>
+
+<img src="./images/producer_to_topic.png" width="47%" /><br/>
 
 <br/><br/><br/><br/>
