@@ -230,8 +230,8 @@ echo '
         "connection.url":"jdbc:mysql://localhost:3306/mydb",
         "connection.user":"root",
         "connection.password":"패스워드",
-        "mode": "incrementing",
-        "incrementing.column.name" : "id",
+        "mode": "incrementing",                     // 자동 증가 방식.
+        "incrementing.column.name" : "id",          // 자동 증가 컬럼. 
         "table.whitelist":"users",                  // 이 테이블의 변경 사항을 감지. 
         "topic.prefix" : "my_topic_",               // 변경 내용을 이 prefix를 가진 토픽에 저장. (my_topic_users가 된다.) 
         "tasks.max" : "1"
