@@ -218,6 +218,25 @@ plugin.path=/Users/sombrero104/workspace/confluentinc-kafka-connect-jdbc-10.5.1/
 로컬 리파지토리 경로에 있는 mysql 드라이버를 <br/>
 (/mysql/mysql-connector-java/8.0.30/mysql-connector-java-8.0.30.jar) <br/>
 Kafka 커넥터의 ./confluent-6.1.0/share/java/kafka/ 경로에 복사해 준다. <br/>
-<br/>
+
+### Source Connect 등록 
+~~~
+echo '
+{
+    "name" : "my-source-connect",
+    "config" : {
+        "connector.class" : "io.confluent.connect.jdbc.JdbcSourceConnector",
+        "connection.url":"jdbc:mysql://localhost:3306/mydb",
+        "connection.user":"root",
+        "connection.password":"test1357",
+        "mode": "incrementing",
+        "incrementing.column.name" : "id",
+        "table.whitelist":"users",                  // 이 테이블의 변경 사항을 감지 
+        "topic.prefix" : "my_topic_",               // 변경 내용을 이 prefix를 가진 토픽에 저장 
+        "tasks.max" : "1"
+    }
+}
+' | curl -X POST -d @- http://localhost:8083/connectors --header "content-Type:application/json"
+~~~
 
 <br/><br/><br/><br/>
