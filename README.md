@@ -334,6 +334,75 @@ users 테이블에는 저장하지 않고 Topic 을 통하여 바로 my_topic_us
 - catalog-service 에서 Kafka Topic 에 전송된 메시지 취득. 
     - catalog-service 가 Consumer 역할.  
 
+### catalog-service 에 Consumer 설정 
+#### [catalog-service - pom.xml]
+~~~
+<dependency>
+    <groupId>org.springframework.kafka</groupId>
+    <artifactId>spring-kafka</artifactId>
+</dependency>
+~~~
+#### [catalog-service - KafkaConsumerConfig.java] 
+~~~
+@EnableKafka
+@Configuration
+public class KafkaConsumerConfig {
+    @Bean
+    public ConsumerFactory<String, String> consumerFactory() {
+        Map<String, Object> properties = new HashMap<>();
+        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.18.0.101:9092"); // Kafka Server 주소
+        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "consumerGroupId");
+        properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        /* Topic 에 저장되는 데이터 형식인 JSON(Key 와 Value 형태) 을
+           원래 형태로 Deserialize 한 후 사용하는데 전달하는 방식이 String 형식이어서 StringDeserializer 사용. */
+        return new DefaultKafkaConsumerFactory<>(properties);
+    }
+
+    @Bean
+    public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory
+                = new ConcurrentKafkaListenerContainerFactory<>();
+        kafkaListenerContainerFactory.setConsumerFactory(consumerFactory());
+        return kafkaListenerContainerFactory;
+    }
+}
+~~~
+#### [catalog-service - KafkaConsumer.java] 
+~~~
+@Service
+@Slf4j
+public class KafkaConsumer {
+    CatalogRepository repository;
+
+    @Autowired
+    public KafkaConsumer(CatalogRepository repository) {
+        this.repository = repository;
+    }
+
+    /**
+     * example-catalog-topic 이름을 가진 Kafka Topic 의 변경 사항을 감지하여 DB 에 동기화.
+     */
+    @KafkaListener(topics = "example-catalog-topic")
+    public void updateQty(String kafkaMessage) {
+        log.info("Kafka Message: ->" + kafkaMessage);
+
+        Map<Object, Object> map = new HashMap<>();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            map = mapper.readValue(kafkaMessage, new TypeReference<Map<Object, Object>>() {});
+        } catch (JsonProcessingException ex) {
+            ex.printStackTrace();
+        }
+
+        CatalogEntity entity = repository.findByProductId((String)map.get("productId"));
+        if (entity != null) {
+            entity.setStock(entity.getStock() - (Integer)map.get("qty"));
+            repository.save(entity);
+        }
+    }
+}
+~~~
 
 
 <br/><br/><br/><br/>
