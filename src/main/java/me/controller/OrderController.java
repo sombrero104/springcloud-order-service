@@ -1,11 +1,12 @@
 package me.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import me.dto.OrderDto;
 import me.jpa.OrderEntity;
+import me.messagequeue.KafkaProducer;
 import me.service.OrderService;
 import me.vo.RequestOrder;
 import me.vo.ResponseOrder;
-import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/order-service")
@@ -25,16 +25,16 @@ public class OrderController {
     Environment env;
     OrderService orderService;
 
-    /*KafkaProducer kafkaProducer;
-    OrderProducer orderProducer;*/
+    KafkaProducer kafkaProducer;
+    // OrderProducer orderProducer;
 
     @Autowired
-    public OrderController(Environment env, OrderService orderService) {
-                           // KafkaProducer kafkaProducer, OrderProducer orderProducer) {
+    public OrderController(Environment env, OrderService orderService
+                           , KafkaProducer kafkaProducer) { // , OrderProducer orderProducer) {
         this.env = env;
         this.orderService = orderService;
-        /*this.kafkaProducer = kafkaProducer;
-        this.orderProducer = orderProducer;*/
+        this.kafkaProducer = kafkaProducer;
+        // this.orderProducer = orderProducer;
     }
 
     @GetMapping("/health_check")
@@ -61,7 +61,7 @@ public class OrderController {
 //        orderDto.setTotalPrice(orderDetails.getQty() * orderDetails.getUnitPrice());
 
         /* send this order to the kafka */
-//        kafkaProducer.send("example-catalog-topic", orderDto);
+        kafkaProducer.send("example-catalog-topic", orderDto);
 //        orderProducer.send("orders", orderDto);
 
 //        ResponseOrder responseOrder = mapper.map(orderDto, ResponseOrder.class);

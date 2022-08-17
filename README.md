@@ -404,5 +404,77 @@ public class KafkaConsumer {
 }
 ~~~
 
+### order-service 에 Producer 설정 
+#### [order-service - pom.xml]
+~~~
+<dependency>
+    <groupId>org.springframework.kafka</groupId>
+    <artifactId>spring-kafka</artifactId>
+</dependency>
+~~~
+#### [order-service - KafkaProducerConfig.java]
+~~~
+@EnableKafka
+@Configuration
+public class KafkaProducerConfig {
+    @Bean
+    public ProducerFactory<String, String> producerFactory() {
+        Map<String, Object> properties = new HashMap<>();
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        return new DefaultKafkaProducerFactory<>(properties);
+    }
+
+    @Bean
+    public KafkaTemplate<String, String> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory());
+    }
+}
+~~~
+#### [order-service - KafkaProducer.java]
+~~~
+@Service
+@Slf4j
+public class KafkaProducer {
+    private KafkaTemplate<String, String> kafkaTemplate;
+
+    @Autowired
+    public KafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
+    public OrderDto send(String topic, OrderDto orderDto) {
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonInString = "";
+        try {
+            jsonInString = mapper.writeValueAsString(orderDto);
+        } catch(JsonProcessingException ex) {
+            ex.printStackTrace();
+        }
+
+        kafkaTemplate.send(topic, jsonInString); // Topic 으로 orderDto 정보를 JSON 형태로 전달. 
+        log.info("Kafka Producer sent data from the Order microservice: " + orderDto);
+
+        return orderDto;
+    }
+}
+~~~
+#### [order-service - OrderController.java]
+~~~
+@RestController
+@RequestMapping("/order-service")
+@Slf4j
+public class OrderController {
+    KafkaProducer kafkaProducer;
+
+    @PostMapping("/{userId}/orders")
+    public ResponseEntity<ResponseOrder> createOrder(@PathVariable("userId") String userId,
+                                                     @RequestBody RequestOrder orderDetails) {
+        ...
+        kafkaProducer.send("example-catalog-topic", orderDto); // Topic 으로 전달. 
+    }
+}
+~~~
 
 <br/><br/><br/><br/>
