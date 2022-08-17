@@ -159,7 +159,7 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
         >  -> Kafka Connect Sink <br/>
         >  -> Target System (S3..) 
 
-## 데이터베이스 간의 데이터 이동 테스트 
+## Kafka 를 이용한 데이터베이스 동기화 테스트 
 #### [pom.xml]
 ~~~
 <!--<dependency>
@@ -324,5 +324,16 @@ users 테이블에는 저장하지 않고 Topic 을 통하여 바로 my_topic_us
 (Sink Connect 만 사용하게 된다.) <br/>
 
 <img src="./images/producer_to_topic.png" width="47%" /><br/>
+<br/><br/>
+
+## Kafka 를 이용한 데이터베이스 동기화를 서비스에 적용 
+- order-service 에 요청 된 주문의 수량 정보를 catalog-service 에 반영.
+    - order-service 와 catalog-service 는 다른 DB 사용 중.
+- order-service 에서 Kafka Topic 으로 메시지 전송. 
+    - order-service 가 Producer 역할. 
+- catalog-service 에서 Kafka Topic 에 전송된 메시지 취득. 
+    - catalog-service 가 Consumer 역할.  
+
+
 
 <br/><br/><br/><br/>
