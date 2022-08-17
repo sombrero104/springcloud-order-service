@@ -485,13 +485,13 @@ order-service 에서 'CATALOG-0003' 상품을 23개 주문.
 
 <img src="./images/kafka_db_synk_02.png" width="60%" /><br/>
 
-주문 후 order-service 로그. 
+(주문 후 order-service 로그) 
 
-<img src="./images/kafka_db_synk_03.png" width="60%" /><br/>
+<img src="./images/kafka_db_synk_03.png" width="67%" /><br/>
 
-catalog-service 로그. 
+(catalog-service 로그) 
 
-<img src="./images/kafka_db_synk_04.png" width="60%" /><br/>
+<img src="./images/kafka_db_synk_04.png" width="67%" /><br/>
 
 다시 catalog-service 에서 상품 리스트를 조회하면 'CATALOG-0003' 수량이 변경된 것을 확인할 수 있다. 
 
