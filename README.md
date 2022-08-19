@@ -502,22 +502,23 @@ order-service 에서 'CATALOG-0003' 상품을 23개 주문.
 Multiple Orders Service 해결 방법 중 Kafka Connector 와 단일 DB를 사용하는 방법이다. <br/>
 우선 Multiple Orders Service 문제를 직접 확인해 보면.. <br/>
 
-<img src="./images/multi_order_service_db.png" width="67%" /><br/>
+<img src="./images/multi_order_service_db.png" width="62%" /><br/>
 
 위와 같이 order-service 를 2개 기동했을 때 상품 주문을 하게 되면 <br/>
 
-<img src="./images/multi_order_service_db_01.png" width="67%" /><br/>
+<img src="./images/multi_order_service_db_01.png" width="62%" /><br/>
 
-<img src="./images/multi_order_service_db_02.png" width="67%" /><br/>
+<img src="./images/multi_order_service_db_02.png" width="62%" /><br/>
 
 2개의 order-service 가 다른 DB를 사용하고 있기 때문에 <br/>
 주문을 할 때마다 주문 정보가 경우에 따라 2개의 다른 DB에 번갈아가면서 저장되게 된다. <br/>
 
-<img src="./images/multi_order_service_01.png" width="67%" /><br/>
+<img src="./images/multi_order_service_01.png" width="62%" /><br/>
 
-<img src="./images/multi_order_service_02.png" width="67%" /><br/>
+<img src="./images/multi_order_service_02.png" width="59%" /><br/>
 
-그래서 주문 정보를 조회할 때에도 위와 같이 어떤 경우에는 2개, 어떤 경우에는 3개로 매번 다르게 조회가 된다. <br/>
+때문에 주문 정보를 조회할 때에도 위와 같이 어떤 경우에는 2개, 어떤 경우에는 3개로 <br/>
+주문 정보를 조회할 때마다 매번 결과가 다르게 조회되는 현상이 발생한다. <br/>
 
 
 <br/><br/><br/><br/>
