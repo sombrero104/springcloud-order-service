@@ -504,7 +504,7 @@ Multiple Orders Service 해결 방법 중 Kafka Connector 와 단일 DB를 사�
 
 <img src="./images/multi_order_service_db.png" width="62%" /><br/>
 
-위와 같이 order-service 를 2개 기동했을 때 상품 주문을 하게 되면 <br/>
+위와 같이 order-service 를 2개 기동했을 때, 상품 주문을 하게 되면 <br/>
 
 <img src="./images/multi_order_service_db_01.png" width="62%" /><br/>
 
