@@ -520,5 +520,12 @@ Multiple Orders Service 해결 방법 중 Kafka Connector 와 단일 DB를 사�
 때문에 주문 정보를 조회할 때에도 위와 같이 어떤 경우에는 2개, 어떤 경우에는 3개로 <br/>
 주문 정보를 조회할 때마다 매번 결과가 다르게 조회되는 현상이 발생한다. <br/>
 
+### 해결 방법 
+- 2개의 order-service 에 요청된 주문 정보를 Kafka Topic 으로 전송. 
+- Kafka Topic 에 설정된 Kafka Sink Connect 를 사용하여 단일 DB 에 저장. (데이터 동기화)<br/>
+    - (Kafka 에서 순차적으로 가지고 있다가 DB로 전달하는 역할을 한다.)
+<br/>
+
+
 
 <br/><br/><br/><br/>
