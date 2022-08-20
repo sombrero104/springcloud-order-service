@@ -526,6 +526,45 @@ Multiple Orders Service 해결 방법 중 Kafka Connector 와 단일 DB를 사�
     - (Kafka 에서 순차적으로 가지고 있다가 DB로 전달하는 역할을 한다.)
 <br/>
 
+#### [OrderController.java]
+~~~
+@RestController
+@RequestMapping("/order-service")
+@Slf4j
+public class OrderController {
+    @PostMapping("/{userId}/orders")
+    public ResponseEntity<ResponseOrder> createOrder(@PathVariable("userId") String userId,
+                                                     @RequestBody RequestOrder orderDetails) {
+        /* kafka */
+        orderDto.setOrderId(UUID.randomUUID().toString());
+        orderDto.setTotalPrice(orderDetails.getQty() * orderDetails.getUnitPrice());
+
+        /* send this order to the kafka */
+        ... 
+        orderProducer.send("orders", orderDto);
+        ... 
+    }
+}
+~~~
+#### [OrderProducer.java]
+~~~
+@Service
+@Slf4j
+public class OrderProducer {
+    ... 
+    public OrderDto send(String topic, OrderDto orderDto) {
+        ...
+        KafkaOrderDto kafkaOrderDto = new KafkaOrderDto(schema, payload);
+        ...
+        kafkaTemplate.send(topic, jsonInString);
+        ... 
+    }
+}
+~~~
+이 외 OrderProducer.java 에서 Topic 에 전달할 메시지를 담을 때 사용할 <br/>
+[Field.java], [Schema.java], [Payload.java], [KafkaOrderDto.java] 와 같은 DTO 들을 추가. <br/>
+
+
 
 
 <br/><br/><br/><br/>
