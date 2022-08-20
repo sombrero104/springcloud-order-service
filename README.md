@@ -530,7 +530,7 @@ Multiple Orders Service 해결 방법 중 Kafka Connector 와 단일 DB를 사�
 
 <img src="./images/edit_datasource_to_mysql.png" width="33%" /><br/>
 
-<img src="./images/create_mysql_table_orders.png" width="70%" /><br/>
+<img src="./images/create_mysql_table_orders.png" width="75%" /><br/>
 
 그리고 order-service 로 상품 주문 시 Topic 으로 메시지를 보내도록 아래와 같이 추가한다. <br/>
 
