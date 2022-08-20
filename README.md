@@ -593,6 +593,7 @@ echo '
 #### [테스트 결과]
 상품 주문을 하면 요청을 보낼 때마다 2개의 order-service 가 번갈아 가면서 요청을 받고 <br/>
 OrderProducer 에서 주문 정보를 메시지로 만들어서 Topic 으로 전달하는 로그를 확인할 수 있다.<br/>
+(2개의 order-service 중 어떤 인스턴스에서 Topic 으로 메시지를 보냈는지 구분하기 위해 인스턴스 정보를 DB에 추가할 수도 있다.) <br/>
 
 <img src="./images/two_orders_producer.png" width="95%" /><br/>
 
