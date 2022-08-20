@@ -591,8 +591,8 @@ echo '
 '| curl -X POST -d @- http://localhost:8083/connectors --header "content-Type:application/json"
 ~~~
 #### [테스트 결과]
-상품 주문을 하면 요청을 보낼 때마다 OrderProducer 에서 주문 정보를 메시지로 만들어서 <br/>
-Topic 으로 전달하는 로그를 확인할 수 있다.<br/>
+상품 주문을 하면 요청을 보낼 때마다 2개의 order-service 가 번갈아 가면서 요청을 받고 <br/>
+OrderProducer 에서 주문 정보를 메시지로 만들어서 Topic 으로 전달하는 로그를 확인할 수 있다.<br/>
 
 <img src="./images/two_orders_producer.png" width="95%" /><br/>
 
