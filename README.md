@@ -528,9 +528,9 @@ Multiple Orders Service 해결 방법 중 Kafka Connector 와 단일 DB를 사�
 
 우선 테스트를 위해서 기존에 order-service 에서 사용하고 있던 H2 DB를 MySQL로 변경한다. <br/>
 
-<img src="./images/edit_datasource_to_mysql.png" width="27%" /><br/>
+<img src="./images/edit_datasource_to_mysql.png" width="33%" /><br/>
 
-<img src="./images/create_mysql_table_orders.png" width="67%" /><br/>
+<img src="./images/create_mysql_table_orders.png" width="70%" /><br/>
 
 그리고 order-service 로 상품 주문 시 Topic 으로 메시지를 보내도록 아래와 같이 추가한다. <br/>
 
