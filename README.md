@@ -526,6 +526,14 @@ Multiple Orders Service 해결 방법 중 Kafka Connector 와 단일 DB를 사�
     - (Kafka 에서 순차적으로 가지고 있다가 DB로 전달하는 역할을 한다.)
 <br/>
 
+우선 테스트를 위해서 기존에 order-service 에서 사용하고 있던 H2 DB를 MySQL로 변경한다. <br/>
+
+<img src="./images/edit_datasource_to_mysql.png" width="57%" /><br/>
+
+<img src="./images/create_mysql_table_orders.png" width="57%" /><br/>
+
+그리고 order-service 로 상품 주문 시 Topic 으로 메시지를 보내도록 아래와 같이 추가한다. <br/>
+
 #### [OrderController.java]
 ~~~
 @RestController
@@ -563,7 +571,25 @@ public class OrderProducer {
 ~~~
 이 외 OrderProducer.java 에서 Topic 에 전달할 메시지를 담을 때 사용할 <br/>
 [Field.java], [Schema.java], [Payload.java], [KafkaOrderDto.java] 와 같은 DTO 들을 추가. <br/>
-
+#### [Kafka Sink Connect 등록]
+~~~
+echo '
+{
+    "name":"my-order-sink-connect",
+    "config":{
+        "connector.class":"io.confluent.connect.jdbc.JdbcSinkConnector", // DB 연결용 Sink Connector를 사용.
+        "connection.url":"jdbc:mysql://localhost:3306/mydb",
+        "connection.user":"root",
+        "connection.password":"패스워드",
+        "auto.create":"true",           
+        "auto.evolve":"true",
+        "delete.enabled":"false",
+        "tasks.max":"1",
+        "topics":"orders" // Topic 이름. 
+    }
+}
+'| curl -X POST -d @- http://localhost:8083/connectors --header "content-Type:application/json"
+~~~
 
 
 
