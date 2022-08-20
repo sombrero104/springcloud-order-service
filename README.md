@@ -605,9 +605,9 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 
 <img src="./images/two_orders_consumer.png" width="55%" /><br/>
 
-마지막으로 DB에서 주문 내역을 조회해 보면 단일 DB에 모든 주문 정보가 저장된 것을 확인할 수 있다. <br/>
+마지막으로 DB에서 주문 내역을 조회해 보면 단일 DB에 모든 주문 정보가 순차적으로 저장된 것을 확인할 수 있다. <br/>
 
-<img src="./images/two_orders_to_db.png" width="65%" /><br/>
+<img src="./images/two_orders_to_db.png" width="59%" /><br/>
 
 
 <br/><br/><br/><br/>
