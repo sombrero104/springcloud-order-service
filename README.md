@@ -524,7 +524,6 @@ Multiple Orders Service 해결 방법 중 Kafka Connector 와 단일 DB를 사�
 - 2개의 order-service 에 요청된 주문 정보를 Kafka Topic 으로 전송. 
 - Kafka Topic 에 설정된 Kafka Sink Connect 를 사용하여 단일 DB 에 저장. (데이터 동기화)<br/>
     - (Kafka 에서 순차적으로 가지고 있다가 DB로 전달하는 역할을 한다.)
-<br/>
 
 #### [OrderController.java]
 ~~~
