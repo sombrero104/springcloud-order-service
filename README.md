@@ -590,7 +590,23 @@ echo '
 }
 '| curl -X POST -d @- http://localhost:8083/connectors --header "content-Type:application/json"
 ~~~
+#### [테스트 결과]
+상품 주문을 하면 요청을 보낼 때마다 OrderProducer 에서 주문 정보를 메시지로 만들어서 <br/>
+Topic 으로 전달하는 로그를 확인할 수 있다.<br/>
 
+<img src="./images/two_orders_producer.png" width="75%" /><br/>
+
+그리고 아래와 같이 콘솔로 Consumer 에서 받는 메시지도 확인할 수 있다. <br/>
+
+~~~
+$KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic orders --from-beginning
+~~~
+
+<img src="./images/two_orders_consumer.png" width="75%" /><br/>
+
+마지막으로 DB에서 주문 내역을 조회해 보면 단일 DB에 모든 주문 정보가 저장된 것을 확인할 수 있다. <br/>
+
+<img src="./images/create_mysql_table_orders.png" width="75%" /><br/>
 
 
 <br/><br/><br/><br/>
