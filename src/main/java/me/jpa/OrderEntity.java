@@ -34,6 +34,7 @@ public class OrderEntity implements Serializable {
 
     /**
      * created_at  timestamp default CURRENT_TIMESTAMP not null
+     * created_at  datetime default now()
      */
     @Column(nullable = false, updatable = false, insertable = false)
     @ColumnDefault(value = "CURRENT_TIMESTAMP")
