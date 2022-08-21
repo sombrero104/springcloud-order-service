@@ -113,6 +113,8 @@ https://kafka.apache.org 에서 다운로드 받은 후 압축 해제.
 ### Zookeeper 및 Kafka 서버 구동
 ~~~
 $KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties
+~~~
+~~~
 $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
 ~~~
 producer 들이 메시지를 생성해서 보내게 되면 Topic 에 저장이 된다. <br/>
