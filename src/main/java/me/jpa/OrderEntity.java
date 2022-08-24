@@ -37,7 +37,7 @@ public class OrderEntity implements Serializable {
      * created_at  datetime default now()
      */
     @Column(nullable = false, updatable = false, insertable = false)
-    @ColumnDefault(value = "CURRENT_TIMESTAMP")
+    // @ColumnDefault(value = "CURRENT_TIMESTAMP")
     private LocalDateTime createdAt;
 
 }
