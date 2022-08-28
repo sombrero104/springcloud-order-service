@@ -33,11 +33,12 @@ public class OrderEntity implements Serializable {
     private String orderId;
 
     /**
-     * created_at  timestamp default CURRENT_TIMESTAMP not null
-     * created_at  datetime default now()
+     * created_at  timestamp  default CURRENT_TIMESTAMP not null
+     * created_at  datetime   default now()             not null
      */
     @Column(nullable = false, updatable = false, insertable = false)
-    // @ColumnDefault(value = "CURRENT_TIMESTAMP")
+    @ColumnDefault(value = "CURRENT_TIMESTAMP")
+    // @CreationTimestamp
     private LocalDateTime createdAt;
 
 }
