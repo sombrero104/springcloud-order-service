@@ -18,7 +18,7 @@ public class OrderEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 120, unique = true)
+    @Column(nullable = false, length = 120)
     private String productId;
     @Column(nullable = false)
     private Integer qty;
@@ -37,8 +37,8 @@ public class OrderEntity implements Serializable {
      * created_at  datetime   default now()             not null
      */
     @Column(nullable = false, updatable = false, insertable = false)
-    @ColumnDefault(value = "CURRENT_TIMESTAMP")
-    // @CreationTimestamp
+    // @ColumnDefault(value = "CURRENT_TIMESTAMP")
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
 }
